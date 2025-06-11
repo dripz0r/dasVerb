@@ -36,12 +36,11 @@ export function WordTooltip({
 
   useEffect(() => {
     setIsMounted(true);
-  }, []); // Empty dependency array ensures this runs once on mount
+  }, []);
 
   if (!isMounted) {
     // Render a non-interactive version or a placeholder until mounted
     // This helps avoid hydration mismatches with complex client-side components
-    // We apply similar base styling to avoid layout shifts.
     return (
       <span
         className={cn(
@@ -60,15 +59,17 @@ export function WordTooltip({
       <Dialog>
         <Tooltip>
           <TooltipTrigger asChild>
-            <DialogTrigger asChild>
-              <span
-                className={cn(
-                  "cursor-pointer text-primary hover:underline decoration-dotted underline-offset-2",
-                  className
-                )}
-              >
-                {children}
-              </span>
+            {/* DialogTrigger renders as a button by default. We style it to look like text. */}
+            {/* TooltipTrigger uses this button (DialogTrigger) as its child. */}
+            <DialogTrigger
+              className={cn(
+                "p-0 m-0 border-none bg-transparent outline-none focus:outline-none focus:ring-0", // Reset button appearance
+                "text-left font-inherit align-baseline", // Inherit text properties, align for inline-like behavior
+                "cursor-pointer text-primary hover:underline decoration-dotted underline-offset-2", // Original span styles
+                className
+              )}
+            >
+              {children}
             </DialogTrigger>
           </TooltipTrigger>
           <TooltipContent>
