@@ -15,7 +15,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
+  DialogTrigger, // Correctly import DialogTrigger
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { getWordDetails, type WordDetailsOutput } from "@/ai/flows/word-details-flow";
@@ -93,16 +93,14 @@ export function WordTooltip({
       <Dialog onOpenChange={setIsDialogOpen} open={isDialogOpen}>
         <Tooltip>
           <TooltipTrigger asChild>
-            <DialogTrigger
+            <DialogTrigger // Use the imported DialogTrigger directly
+              asChild={false} // Ensures DialogTrigger renders its own element (button by default)
               className={cn(
-                "p-0 m-0 border-none bg-transparent outline-none focus:outline-none focus:ring-0", 
-                "text-left font-inherit align-baseline", 
-                "cursor-pointer text-primary hover:underline decoration-dotted underline-offset-2", 
+                "p-0 m-0 border-none bg-transparent outline-none focus:outline-none focus:ring-0",
+                "text-left font-inherit align-baseline", // Ensure it behaves like text
+                "cursor-pointer text-primary hover:underline decoration-dotted underline-offset-2",
                 className
               )}
-              onClick={(e) => {
-                 // Allow dialog to open. If you need to prevent default for some reason, handle it here.
-              }}
             >
               {children}
             </DialogTrigger>
@@ -139,7 +137,7 @@ export function WordTooltip({
                   {aiDetails.exampleSentences && aiDetails.exampleSentences.length > 0 ? (
                     <ul className="list-none pl-0 space-y-2">
                       {aiDetails.exampleSentences.map((ex, index) => (
-                        <li key={index} className="text-sm p-2 bg-secondary/30 rounded-md">
+                        <li key={`ex-${index}-${ex.german.substring(0,10)}`} className="text-sm p-2 bg-secondary/30 rounded-md">
                           <p className="font-medium text-foreground/90">{ex.german}</p>
                           <p className="text-muted-foreground italic">"{ex.english}"</p>
                         </li>
@@ -154,7 +152,7 @@ export function WordTooltip({
                   {aiDetails.alternateTranslations && aiDetails.alternateTranslations.length > 0 ? (
                   <ul className="list-disc list-inside pl-4 space-y-1 text-sm text-muted-foreground">
                     {aiDetails.alternateTranslations.map((alt, index) => (
-                      <li key={index}>{alt}</li>
+                      <li key={`alt-${index}-${alt.substring(0,10)}`}>{alt}</li>
                     ))}
                   </ul>
                   ) : (
