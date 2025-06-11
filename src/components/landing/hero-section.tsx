@@ -1,6 +1,8 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { Input } from '@/components/ui/input'; // Added Input import
 
 export function HeroSection() {
   return (
@@ -21,8 +23,29 @@ export function HeroSection() {
               <Link href="/vibe-check">Take the Vibe Check</Link>
             </Button>
           </div>
+
+          {/* Email Capture Form */}
+          <div className="mt-10 pt-6 border-t border-border/30">
+            <p className="text-md font-medium text-foreground mb-3 text-center md:text-left">
+              🎁 Level up your Deutsch! Get your free learning guide:
+            </p>
+            <form className="flex flex-col sm:flex-row gap-3 items-center">
+              <Input
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-grow text-base"
+                aria-label="Email for free guide"
+              />
+              <Button type="submit" variant="secondary" className="shadow-md hover:shadow-lg transition-shadow w-full sm:w-auto">
+                Get Free Guide
+              </Button>
+            </form>
+            <p className="text-xs text-muted-foreground mt-2 text-center md:text-left">
+              We'll send awesome tips & resources. No spam, versprochen!
+            </p>
+          </div>
         </div>
-        <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
+        <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mt-8 md:mt-0">
            <Image
             src="https://placehold.co/600x400.png"
             alt="DasVerb app preview"
