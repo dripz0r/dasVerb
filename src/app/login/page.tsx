@@ -35,7 +35,7 @@ export default function LoginPage() {
           <p className="text-xs text-muted-foreground text-center">
             No account? <Link href="/signup" className="font-semibold text-primary hover:underline">Sign up here</Link>.
           </p>
-        </CardContent>
+        </CardFooter>
       </Card>
     </div>
   );
