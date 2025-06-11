@@ -42,7 +42,7 @@ export function GrammarFixerForm() {
           title: "Grammar Check Complete!",
           description: "Your sentence has been analyzed.",
         });
-      } catch (error) {
+      } catch (error)
         console.error("Error correcting grammar:", error);
         toast({
           title: "Uh oh! Something went wrong.",
@@ -62,7 +62,7 @@ export function GrammarFixerForm() {
             <CardTitle className="text-3xl font-headline">AI Grammar Guru</CardTitle>
         </div>
         <CardDescription className="text-md">
-          Paste your German sentence below and let our AI magician fix it and tell you what went wrong (or right!). No judgment, only vibes. ✨
+          Enter your German sentence below. Our AI will fix it and offer a (hopefully) insightful explanation.
         </CardDescription>
       </CardHeader>
       <Form {...form}>
