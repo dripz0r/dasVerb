@@ -14,9 +14,9 @@ export function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold tracking-tight">
             DasVerb. <span className="text-primary">German grammar, gone hard.</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground">
+          <div className="text-lg md:text-xl text-muted-foreground">
             Stop snoozing through Deutsch class. Level up your language skills with DasVerb – where learning is effective, witty, and <WordTooltip germanWord="klug" englishTranslation="clever / smart">klug</WordTooltip>.
-          </p>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
               <Link href="/signup">Start Your Quest</Link>
