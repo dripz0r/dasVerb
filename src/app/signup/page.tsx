@@ -13,7 +13,7 @@ export default function SignupPage() {
           <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit mb-4">
             <UserPlus className="h-10 w-10 text-primary" />
           </div>
-          <CardTitle className="text-3xl font-headline">Join DeutschTok!</CardTitle>
+          <CardTitle className="text-3xl font-headline">Join DasVerb!</CardTitle>
           <CardDescription>Start your epic German learning adventure today.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

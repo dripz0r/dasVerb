@@ -7,8 +7,8 @@ export function Footer() {
       <div className="container mx-auto py-8 px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-headline font-semibold text-primary mb-2">DeutschTok</h3>
-            <p className="text-sm text-muted-foreground">German. But make it Gen Z.</p>
+            <h3 className="text-lg font-headline font-semibold text-primary mb-2">DasVerb</h3>
+            <p className="text-sm text-muted-foreground">Where German grammar goes hard, but never try-hard.</p>
           </div>
           <div>
             <h4 className="font-semibold mb-2 font-headline">Quick Links</h4>
@@ -35,7 +35,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} DeutschTok. All rights reserved. Made with ✨ by Firebase Studio.
+          &copy; {new Date().getFullYear()} DasVerb. All rights reserved. Made with ✨ by Firebase Studio.
         </div>
       </div>
     </footer>

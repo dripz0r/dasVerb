@@ -13,12 +13,12 @@ export default function VibeCheckPage() {
           </div>
           <CardTitle className="text-3xl font-headline">Vibe Check Time!</CardTitle>
           <CardDescription className="text-lg text-muted-foreground">
-            Let's figure out your German level, Gen Z style. This placement quiz is currently under construction. 🚧
+            Let's figure out your German level, witty style. This placement quiz is currently under construction. 🚧
           </CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-lg">
-            Our team of highly-skilled memeologists and linguists are crafting the perfect "Vibe Check" to place you in the right DeutschTok level.
+            Our team of highly-skilled memeologists and linguists are crafting the perfect "Vibe Check" to place you in the right DasVerb level.
             Expect questions like: "What's the German equivalent of 'yeet'?" (Spoiler: there isn't one, but we'll try).
           </p>
         </CardContent>

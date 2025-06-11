@@ -23,7 +23,7 @@ const CorrectGrammarOutputSchema = z.object({
     .describe('The corrected version of the input sentence.'),
   explanation: z
     .string()
-    .describe('An explanation of the grammatical corrections made.'),
+    .describe('A short, witty, and helpful explanation of the grammatical corrections made, in the persona of DasVerb.'),
 });
 export type CorrectGrammarOutput = z.infer<typeof CorrectGrammarOutputSchema>;
 
@@ -35,9 +35,17 @@ const correctGrammarPrompt = ai.definePrompt({
   name: 'correctGrammarPrompt',
   input: {schema: CorrectGrammarInputSchema},
   output: {schema: CorrectGrammarOutputSchema},
-  prompt: `You are a German language expert. Correct the grammar of the following German sentence and provide a clear and concise explanation of the corrections you made.
+  config: {
+    temperature: 0.65,
+  },
+  prompt: `You are DasVerb, a helpful but dry-humored AI German tutor. You don’t over-explain. 
+If a user provides a German sentence, you correct it calmly, sometimes sarcastically, but always ensuring the correction is accurate. 
+Keep your explanation short, useful, and witty.
 
-Sentence: {{{sentence}}}`,
+Correct the grammar of the following German sentence:
+Sentence: {{{sentence}}}
+
+Provide the corrected sentence and a brief, DasVerb-style explanation.`,
 });
 
 const correctGrammarFlow = ai.defineFlow(

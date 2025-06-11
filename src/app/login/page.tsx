@@ -14,7 +14,7 @@ export default function LoginPage() {
             <LogIn className="h-10 w-10 text-primary" />
           </div>
           <CardTitle className="text-3xl font-headline">Welcome Back!</CardTitle>
-          <CardDescription>Login to continue your DeutschTok journey.</CardDescription>
+          <CardDescription>Login to continue your DasVerb journey.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">

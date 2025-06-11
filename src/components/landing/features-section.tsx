@@ -16,14 +16,14 @@ const features = [
   },
   {
     icon: <Bot className="h-10 w-10 text-primary" />,
-    title: 'Smart AI Tutor',
-    description: 'Your AI bestie for Deutsch dilemmas. Practice convos, get grammar fixes, and generate stories. It\'s like ChatGPT, but for German.',
+    title: 'Witty AI Tutor',
+    description: 'Your AI bestie for Deutsch dilemmas. Practice convos, get grammar fixes, and generate stories. Calmly sarcastic, always helpful.',
     dataAiHint: "ai chatbot"
   },
   {
     icon: <Zap className="h-10 w-10 text-primary" />,
     title: 'Gen Z Flavor',
-    description: 'We speak your language (literally). Learn German with content that\'s actually relatable and funny. Iykyk.',
+    description: 'We speak your language (literally). Learn German with content that\'s actually relatable and quietly chaotic. Iykyk.',
     dataAiHint: "youth culture"
   }
 ];
@@ -33,7 +33,7 @@ export function FeaturesSection() {
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Why DeutschTok Slaps</h2>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">Why DasVerb Hits Different</h2>
           <p className="text-lg text-muted-foreground mt-2">
             It's not your Oma's German course. We make learning effective and, dare we say, enjoyable.
           </p>
