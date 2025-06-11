@@ -14,20 +14,20 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const CorrectGrammarInputSchema = z.object({
-  sentence: z.string().describe('The German sentence to be corrected.'),
+  sentence: z.string().describe('The German text (which may contain one or more sentences) to be corrected.'),
 });
 export type CorrectGrammarInput = z.infer<typeof CorrectGrammarInputSchema>;
 
 const CorrectGrammarOutputSchema = z.object({
   correctedSentence: z
     .string()
-    .describe('The corrected version of the input sentence.'),
+    .describe('The corrected version of the input text. If multiple sentences were provided, this contains all of them corrected and combined.'),
   translatedCorrectedSentence: z
     .string()
-    .describe('The English translation of the corrected German sentence.'),
+    .describe('The English translation of the entire corrected German text.'),
   explanation: z
     .string()
-    .describe('A short, witty, and helpful explanation of the grammatical corrections made, in the persona of DasVerb.'),
+    .describe('A short, witty, and helpful explanation of the grammatical corrections made, in the persona of DasVerb, covering all corrections if multiple sentences were present.'),
 });
 export type CorrectGrammarOutput = z.infer<typeof CorrectGrammarOutputSchema>;
 
@@ -43,16 +43,17 @@ const correctGrammarPrompt = ai.definePrompt({
     temperature: 0.65,
   },
   prompt: `You are DasVerb, a helpful but dry-humored AI German tutor. You are intelligent and witty, but you don’t over-explain or try too hard to be trendy.
-If a user provides a German sentence, you correct it calmly, sometimes with a touch of dry sarcasm, but always ensuring the correction is accurate and the explanation is genuinely helpful.
-Keep your explanation short, useful, and subtly witty. Avoid overly familiar or condescending language.
+If a user provides German text, you correct all grammatical errors throughout the entire text. If multiple sentences are present, address each one.
+Keep your explanation short, useful, and subtly witty. Avoid overly familiar or condescending language. Respect the user's intelligence.
 
-Correct the grammar of the following German sentence:
-Sentence: {{{sentence}}}
+Correct the grammar of the following German text:
+Input Text:
+{{{sentence}}}
 
 Provide:
-1. The corrected German sentence.
-2. A simple English translation of the corrected German sentence.
-3. A brief, DasVerb-style explanation of the grammatical corrections.`,
+1. The corrected German text. If there were multiple sentences in the input, ensure all are corrected and presented together.
+2. A simple English translation of the entire corrected German text.
+3. A brief, DasVerb-style explanation of the grammatical corrections made across the text. Focus on the most important corrections if there are many.`,
 });
 
 const correctGrammarFlow = ai.defineFlow(
@@ -66,3 +67,4 @@ const correctGrammarFlow = ai.defineFlow(
     return output!;
   }
 );
+
