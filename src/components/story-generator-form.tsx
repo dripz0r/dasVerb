@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { GenerateStoryOutput } from "@/ai/flows/ai-story-generator";
@@ -22,6 +23,7 @@ const storyStyles = [
   "Sci-Fi Adventure",
   "Mystery Short",
   "Gen Z Slang Overload",
+  "Funny",
 ];
 
 const formSchema = z.object({
@@ -143,14 +145,27 @@ export function StoryGeneratorForm() {
         </div>
       )}
       {result && !isPending && (
-        <CardContent className="mt-6 border-t pt-6">
-          <h3 className="text-xl font-headline font-semibold mb-2">Your Epic Tale:</h3>
-          <Textarea
-            readOnly
-            value={result.story}
-            className="min-h-[200px] text-base bg-primary/5 resize-none"
-            aria-label="Generated story"
-          />
+        <CardContent className="mt-6 border-t pt-6 space-y-4">
+          <div>
+            <h3 className="text-xl font-headline font-semibold mb-2">Your Epic Tale:</h3>
+            <Textarea
+              readOnly
+              value={result.story}
+              className="min-h-[150px] text-base bg-primary/5 resize-none"
+              aria-label="Generated story"
+            />
+          </div>
+          {result.vocabularyExplanation && (
+            <div>
+              <h4 className="text-lg font-headline font-semibold mb-2 text-accent">Vocab Lowdown:</h4>
+               <Textarea
+                readOnly
+                value={result.vocabularyExplanation}
+                className="min-h-[100px] text-base bg-accent/5 resize-none whitespace-pre-wrap"
+                aria-label="Vocabulary explanation"
+              />
+            </div>
+          )}
         </CardContent>
       )}
     </Card>

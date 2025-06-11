@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -24,7 +25,8 @@ const GenerateStoryInputSchema = z.object({
 export type GenerateStoryInput = z.infer<typeof GenerateStoryInputSchema>;
 
 const GenerateStoryOutputSchema = z.object({
-  story: z.string().describe('The generated story.'),
+  story: z.string().describe('The generated story, ideally under 100 words.'),
+  vocabularyExplanation: z.string().describe('A brief explanation of how the provided vocabulary words were used in the story, suitable for language learners.'),
 });
 export type GenerateStoryOutput = z.infer<typeof GenerateStoryOutputSchema>;
 
@@ -36,16 +38,21 @@ const prompt = ai.definePrompt({
   name: 'generateStoryPrompt',
   input: {schema: GenerateStoryInputSchema},
   output: {schema: GenerateStoryOutputSchema},
-  prompt: `You are a creative story writer who specializes in writing stories in various styles.
+  config: {
+    temperature: 0.6,
+  },
+  prompt: `You are a creative story writer who specializes in writing stories in various styles, particularly for language learners.
+You will be provided with a list of vocabulary words and a desired style for the story.
 
-You will be provided with a list of vocabulary words and a style.
-
-Your task is to write a story that incorporates all the given vocabulary words in the specified style. The story should be engaging, entertaining, and appropriate for language learners. Occasionally inject ironic GenZ references to provide extra flair for students.
+Your task is to:
+1. Write a story that incorporates all the given vocabulary words in the specified style.
+2. The story should be short and engaging, ideally under 100 words.
+3. The story must be appropriate for language learners.
+4. Occasionally inject ironic GenZ references to provide extra flair for students.
+5. After the story, provide a brief explanation of how the provided vocabulary words were used in the story. This explanation should help a language learner understand their meaning and usage in context.
 
 Vocabulary words: {{vocabulary}}
-Style: {{style}}
-
-Story:`,
+Style: {{style}}`,
 });
 
 const generateStoryFlow = ai.defineFlow(
