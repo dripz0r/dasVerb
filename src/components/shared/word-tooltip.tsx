@@ -40,7 +40,6 @@ export function WordTooltip({
 
   if (!isMounted) {
     // Render a non-interactive version or a placeholder until mounted
-    // This helps avoid hydration mismatches with complex client-side components
     return (
       <span
         className={cn(
@@ -59,12 +58,10 @@ export function WordTooltip({
       <Dialog>
         <Tooltip>
           <TooltipTrigger asChild>
-            {/* DialogTrigger renders as a button by default. We style it to look like text. */}
-            {/* TooltipTrigger uses this button (DialogTrigger) as its child. */}
             <DialogTrigger
               className={cn(
                 "p-0 m-0 border-none bg-transparent outline-none focus:outline-none focus:ring-0", // Reset button appearance
-                "text-left font-inherit align-baseline", // Inherit text properties, align for inline-like behavior
+                "text-left font-inherit align-baseline", // Inherit text properties
                 "cursor-pointer text-primary hover:underline decoration-dotted underline-offset-2", // Original span styles
                 className
               )}
@@ -73,7 +70,7 @@ export function WordTooltip({
             </DialogTrigger>
           </TooltipTrigger>
           <TooltipContent>
-            <p>{englishTranslation}</p>
+            <span>{englishTranslation}</span>
           </TooltipContent>
         </Tooltip>
         <DialogContent className="sm:max-w-md">
