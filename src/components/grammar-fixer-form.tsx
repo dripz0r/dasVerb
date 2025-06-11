@@ -62,7 +62,7 @@ export function GrammarFixerForm() {
             <CardTitle className="text-3xl font-headline">AI Grammar Guru</CardTitle>
         </div>
         <CardDescription className="text-md">
-          Enter your German sentence below. Our AI will fix it and offer a (hopefully) insightful explanation.
+          Enter your German text below. DasVerb will correct it and offer an insightful, witty (and now, nicely formatted!) explanation.
         </CardDescription>
       </CardHeader>
       <Form {...form}>
@@ -73,7 +73,7 @@ export function GrammarFixerForm() {
               name="sentence"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="sentence" className="text-lg font-semibold">Your German Sentence</FormLabel>
+                  <FormLabel htmlFor="sentence" className="text-lg font-semibold">Your German Text</FormLabel>
                   <FormControl>
                     <Textarea
                       id="sentence"
@@ -97,7 +97,7 @@ export function GrammarFixerForm() {
       </Form>
       {isPending && (
         <div className="p-6 text-center">
-          <p className="text-muted-foreground animate-pulse">Hold tight, the AI is working its magic...</p>
+          <p className="text-muted-foreground animate-pulse">Hold tight, DasVerb is working its magic...</p>
         </div>
       )}
       {result && !isPending && (
@@ -116,7 +116,10 @@ export function GrammarFixerForm() {
             )}
             <div>
               <h4 className="font-semibold text-accent mb-1">Explanation:</h4>
-              <p className="p-3 bg-accent/10 rounded-md whitespace-pre-wrap">{result.explanation}</p>
+              <div 
+                className="p-3 bg-accent/10 rounded-md prose prose-sm max-w-none"
+                dangerouslySetInnerHTML={{ __html: result.explanation }} 
+              />
             </div>
           </div>
         </CardContent>
