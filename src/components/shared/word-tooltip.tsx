@@ -2,6 +2,7 @@
 "use client";
 
 import * as React from "react";
+import { useState, useEffect } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -31,6 +32,29 @@ export function WordTooltip({
   children,
   className,
 }: WordTooltipProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []); // Empty dependency array ensures this runs once on mount
+
+  if (!isMounted) {
+    // Render a non-interactive version or a placeholder until mounted
+    // This helps avoid hydration mismatches with complex client-side components
+    // We apply similar base styling to avoid layout shifts.
+    return (
+      <span
+        className={cn(
+          "text-primary decoration-dotted underline-offset-2",
+          className
+        )}
+      >
+        {children}
+      </span>
+    );
+  }
+
+  // When mounted, render the full interactive component
   return (
     <TooltipProvider delayDuration={100}>
       <Dialog>
