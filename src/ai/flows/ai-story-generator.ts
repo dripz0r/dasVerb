@@ -25,8 +25,8 @@ const GenerateStoryInputSchema = z.object({
 export type GenerateStoryInput = z.infer<typeof GenerateStoryInputSchema>;
 
 const GenerateStoryOutputSchema = z.object({
-  story: z.string().describe('The generated story, ideally under 100 words.'),
-  vocabularyExplanation: z.string().describe('A brief explanation of how the provided vocabulary words were used in the story, suitable for language learners.'),
+  story: z.string().describe('The generated story, ideally under 100 words. Vocabulary words should be used naturally without any special formatting like asterisks.'),
+  vocabularyExplanation: z.string().describe('A brief explanation of how ONLY the provided vocabulary words were used in the story, suitable for language learners. Do not explain other words from the story.'),
 });
 export type GenerateStoryOutput = z.infer<typeof GenerateStoryOutputSchema>;
 
@@ -46,10 +46,11 @@ You will be provided with a list of vocabulary words and a desired style for the
 
 Your task is to:
 1. Write a story that incorporates all the given vocabulary words in the specified style.
-2. The story should be short and engaging, ideally under 100 words.
-3. The story must be appropriate for language learners.
-4. Occasionally inject ironic GenZ references to provide extra flair for students.
-5. After the story, provide a brief explanation of how the provided vocabulary words were used in the story. This explanation should help a language learner understand their meaning and usage in context.
+2. IMPORTANT: Do NOT use asterisks, bolding, or any other special formatting for the vocabulary words within the story. Integrate them naturally.
+3. The story should be short and engaging, ideally under 100 words.
+4. The story must be appropriate for language learners.
+5. Occasionally inject ironic GenZ references to provide extra flair for students.
+6. After the story, provide a brief explanation of how ONLY the provided vocabulary words were used in the story. This explanation should help a language learner understand their meaning and usage in context. Do not explain any other words from the story, only the ones provided in the input.
 
 Vocabulary words: {{vocabulary}}
 Style: {{style}}`,
@@ -66,3 +67,4 @@ const generateStoryFlow = ai.defineFlow(
     return output!;
   }
 );
+
