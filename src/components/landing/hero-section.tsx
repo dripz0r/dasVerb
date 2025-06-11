@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { WordTooltip } from '@/components/shared/word-tooltip';
+import { ClientOnly } from '@/components/shared/client-only';
 
 export function HeroSection() {
   return (
@@ -27,20 +28,22 @@ export function HeroSection() {
 
           {/* Email Capture Form */}
           <div className="mt-10 pt-6 border-t border-border/30">
-            <p className="text-md font-medium text-foreground mb-3 text-center md:text-left">
+            <div className="text-md font-medium text-foreground mb-3 text-center md:text-left">
               🎁 Level up your Deutsch! Get your free learning guide:
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3 items-center">
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-grow text-base"
-                aria-label="Email for free guide"
-              />
-              <Button type="submit" variant="secondary" className="shadow-md hover:shadow-lg transition-shadow w-full sm:w-auto">
-                Get Free Guide
-              </Button>
-            </form>
+            </div>
+            <ClientOnly fallback={<div style={{ height: '76px' }} className="w-full opacity-0" aria-hidden="true" />}>
+              <form className="flex flex-col sm:flex-row gap-3 items-center">
+                <Input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="flex-grow text-base"
+                  aria-label="Email for free guide"
+                />
+                <Button type="submit" variant="secondary" className="shadow-md hover:shadow-lg transition-shadow w-full sm:w-auto">
+                  Get Free Guide
+                </Button>
+              </form>
+            </ClientOnly>
             <div className="text-xs text-muted-foreground mt-2 text-center md:text-left">
               We'll send awesome tips & resources. No spam, <WordTooltip germanWord="versprochen" englishTranslation="promised">versprochen</WordTooltip>!
             </div>
