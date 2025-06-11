@@ -2,7 +2,8 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Input } from '@/components/ui/input'; // Added Input import
+import { Input } from '@/components/ui/input';
+import { WordTooltip } from '@/components/shared/word-tooltip';
 
 export function HeroSection() {
   return (
@@ -13,7 +14,7 @@ export function HeroSection() {
             DasVerb. <span className="text-primary">German grammar, gone hard.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground">
-            Stop snoozing through Deutsch class. Level up your language skills with DasVerb – where learning is effective, witty, and smart.
+            Stop snoozing through Deutsch class. Level up your language skills with DasVerb – where learning is effective, witty, and <WordTooltip germanWord="klug" englishTranslation="clever / smart">klug</WordTooltip>.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
@@ -41,7 +42,7 @@ export function HeroSection() {
               </Button>
             </form>
             <p className="text-xs text-muted-foreground mt-2 text-center md:text-left">
-              We'll send awesome tips & resources. No spam, versprochen!
+              We'll send awesome tips & resources. No spam, <WordTooltip germanWord="versprochen" englishTranslation="promised">versprochen</WordTooltip>!
             </p>
           </div>
         </div>
