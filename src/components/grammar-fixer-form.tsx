@@ -42,7 +42,7 @@ export function GrammarFixerForm() {
           title: "Grammar Check Complete!",
           description: "Your sentence has been analyzed.",
         });
-      } catch (error)
+      } catch (error) {
         console.error("Error correcting grammar:", error);
         toast({
           title: "Uh oh! Something went wrong.",
