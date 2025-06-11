@@ -41,9 +41,9 @@ export function HeroSection() {
                 Get Free Guide
               </Button>
             </form>
-            <p className="text-xs text-muted-foreground mt-2 text-center md:text-left">
+            <div className="text-xs text-muted-foreground mt-2 text-center md:text-left">
               We'll send awesome tips & resources. No spam, <WordTooltip germanWord="versprochen" englishTranslation="promised">versprochen</WordTooltip>!
-            </p>
+            </div>
           </div>
         </div>
         <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mt-8 md:mt-0">
