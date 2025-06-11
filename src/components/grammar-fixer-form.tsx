@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { CorrectGrammarOutput } from "@/ai/flows/grammar-fixer";
@@ -101,14 +102,20 @@ export function GrammarFixerForm() {
       )}
       {result && !isPending && (
         <CardContent className="mt-6 border-t pt-6">
-          <h3 className="text-xl font-headline font-semibold mb-2">Guru's Verdict:</h3>
-          <div className="space-y-4">
+          <h3 className="text-xl font-headline font-semibold mb-4">Guru's Verdict:</h3>
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold text-primary">Corrected Sentence:</h4>
+              <h4 className="font-semibold text-primary mb-1">Corrected Sentence:</h4>
               <p className="p-3 bg-primary/10 rounded-md text-lg">{result.correctedSentence}</p>
             </div>
+            {result.translatedCorrectedSentence && (
+               <div>
+                <h4 className="font-semibold text-primary/80 mb-1">Translation:</h4>
+                <p className="p-3 bg-primary/5 rounded-md text-md italic">{result.translatedCorrectedSentence}</p>
+              </div>
+            )}
             <div>
-              <h4 className="font-semibold text-accent">Explanation:</h4>
+              <h4 className="font-semibold text-accent mb-1">Explanation:</h4>
               <p className="p-3 bg-accent/10 rounded-md whitespace-pre-wrap">{result.explanation}</p>
             </div>
           </div>

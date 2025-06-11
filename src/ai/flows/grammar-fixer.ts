@@ -22,6 +22,9 @@ const CorrectGrammarOutputSchema = z.object({
   correctedSentence: z
     .string()
     .describe('The corrected version of the input sentence.'),
+  translatedCorrectedSentence: z
+    .string()
+    .describe('The English translation of the corrected German sentence.'),
   explanation: z
     .string()
     .describe('A short, witty, and helpful explanation of the grammatical corrections made, in the persona of DasVerb.'),
@@ -46,7 +49,10 @@ Keep your explanation short, useful, and subtly witty.
 Correct the grammar of the following German sentence:
 Sentence: {{{sentence}}}
 
-Provide the corrected sentence and a brief, DasVerb-style explanation.`,
+Provide:
+1. The corrected German sentence.
+2. A simple English translation of the corrected German sentence.
+3. A brief, DasVerb-style explanation of the grammatical corrections.`,
 });
 
 const correctGrammarFlow = ai.defineFlow(
