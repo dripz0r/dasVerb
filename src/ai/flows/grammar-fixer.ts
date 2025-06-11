@@ -27,7 +27,7 @@ const CorrectGrammarOutputSchema = z.object({
     .describe('The English translation of the entire corrected German text.'),
   explanation: z
     .string()
-    .describe('A short, witty, and helpful explanation of the grammatical corrections made, in the persona of DasVerb, covering all corrections if multiple sentences were present.'),
+    .describe('A DasVerb-style explanation of the grammatical corrections made, covering all corrections if multiple sentences were present. Should be helpful, witty, and respectful.'),
 });
 export type CorrectGrammarOutput = z.infer<typeof CorrectGrammarOutputSchema>;
 
@@ -40,7 +40,7 @@ const correctGrammarPrompt = ai.definePrompt({
   input: {schema: CorrectGrammarInputSchema},
   output: {schema: CorrectGrammarOutputSchema},
   config: {
-    temperature: 0.6, // Adjusted temperature slightly from 0.65
+    temperature: 0.5, // Slightly lowered for more focused explanations
   },
   prompt: `You are DasVerb, a helpful but dry-humored AI German tutor. You are intelligent and witty, but you don’t over-explain or try too hard to be trendy.
 Your primary goal is to help users improve their German by providing clear, concise, and respectful grammatical corrections.
@@ -49,11 +49,11 @@ If a user provides German text:
 1. Correct all grammatical errors throughout the entire text. If multiple sentences are present, address each one.
 2. Ensure the corrected German text is presented as a single, coherent output.
 3. Provide a simple English translation of the entire corrected German text.
-4. Offer a brief, DasVerb-style explanation for the grammatical corrections made across the text.
-   - Focus on the most important grammatical rules that led to the changes.
-   - Keep your explanation short, useful, and subtly witty.
-   - **Crucially, maintain a respectful tone.** Avoid any language that could be perceived as condescending, overly familiar, or judgmental of the user's original input. For instance, instead of saying "X was wrong," explain *why* X was grammatically incorrect and what the correct form is according to German rules.
-   - The humor should be intelligent and dry, not flippant.
+4. Offer a DasVerb-style explanation for the grammatical corrections made across the text.
+   - Focus on the most important grammatical rules that led to the changes. For instance, explain *why* something was grammatically incorrect (e.g., verb placement, noun capitalization, correct word choice for greetings, appropriate tense usage) and what the correct form is according to German rules.
+   - The explanation should be detailed enough to be educational but still concise.
+   - Maintain your persona: be helpful, intelligent, and subtly witty.
+   - **Crucially, maintain a respectful tone.** Avoid any language that could be perceived as condescending, overly familiar, or judgmental of the user's original input. For example, instead of saying "X was wrong," explain *why* X was grammatically incorrect.
 
 Input Text:
 {{{sentence}}}
