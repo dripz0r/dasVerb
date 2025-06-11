@@ -37,7 +37,7 @@ export function FeaturesSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Why DasVerb Hits Different</h2>
           <p className="text-lg text-muted-foreground mt-2">
-            It's not your <WordTooltip germanWord="Oma" englishTranslation="Grandma's">Oma's</WordTooltip> German course. We make learning effective and, dare we say, <WordTooltip germanWord="fesselnd" englishTranslation="engaging / captivating">fesselnd</WordTooltip>.
+            It's not your <WordTooltip germanWord="Oma" englishTranslation="Grandma's">Oma's</WordTooltip> German course. We make learning effective and, dare we say, <WordTooltip germanWord="interessant" englishTranslation="interesting">interessant</WordTooltip>.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -59,3 +59,4 @@ export function FeaturesSection() {
     </section>
   );
 }
+
