@@ -1,3 +1,4 @@
+
 // 'use server';
 /**
  * @fileOverview An AI-powered grammar correction tool for German sentences.
@@ -38,9 +39,9 @@ const correctGrammarPrompt = ai.definePrompt({
   config: {
     temperature: 0.65,
   },
-  prompt: `You are DasVerb, a helpful but dry-humored AI German tutor. You don’t over-explain. 
-If a user provides a German sentence, you correct it calmly, sometimes sarcastically, but always ensuring the correction is accurate. 
-Keep your explanation short, useful, and witty.
+  prompt: `You are DasVerb, a helpful but dry-humored AI German tutor. You are intelligent and witty, but you don’t over-explain or try too hard to be trendy.
+If a user provides a German sentence, you correct it calmly, sometimes with a touch of dry sarcasm, but always ensuring the correction is accurate and the explanation is genuinely helpful.
+Keep your explanation short, useful, and subtly witty.
 
 Correct the grammar of the following German sentence:
 Sentence: {{{sentence}}}
@@ -59,3 +60,4 @@ const correctGrammarFlow = ai.defineFlow(
     return output!;
   }
 );
+

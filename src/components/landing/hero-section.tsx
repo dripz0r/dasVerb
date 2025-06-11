@@ -11,11 +11,11 @@ export function HeroSection() {
             DasVerb. <span className="text-primary">German grammar, gone hard.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground">
-            Stop snoozing through Deutsch class. Level up your language skills with DasVerb – where learning is effective, witty, and just a little unhinged. No cap.
+            Stop snoozing through Deutsch class. Level up your language skills with DasVerb – where learning is effective, witty, and smart.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
-              <Link href="/signup">Start for Free</Link>
+              <Link href="/signup">Start Your Quest</Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="shadow-lg hover:shadow-accent/50 transition-shadow">
               <Link href="/vibe-check">Take the Vibe Check</Link>
@@ -23,9 +23,9 @@ export function HeroSection() {
           </div>
         </div>
         <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
-           <Image 
-            src="https://placehold.co/600x400.png" 
-            alt="DasVerb app preview" 
+           <Image
+            src="https://placehold.co/600x400.png"
+            alt="DasVerb app preview"
             fill
             data-ai-hint="language learning app"
             className="object-cover"
