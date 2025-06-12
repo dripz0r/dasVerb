@@ -1,0 +1,148 @@
+# Getting Started
+
+Welcome to DasVerb! This guide will help you set up the project and start contributing.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- Node.js 18+ installed
+- npm or yarn package manager
+- Git
+- A code editor (VS Code recommended)
+- Google Cloud account (for AI features)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/dasVerb.git
+   cd dasVerb
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory with:
+   ```
+   GOOGLE_AI_API_KEY=your_api_key_here
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Project Structure
+
+The project follows a modern Next.js 14 structure:
+
+```
+dasVerb/
+├── src/
+│   ├── app/           # Main Next.js App Router (routes, pages, layouts, API)
+│   ├── components/    # All React components (UI, features, layout, shared)
+│   ├── ai/            # AI logic, Genkit flows, and integration with Gemini
+│   ├── lib/           # Shared utilities and helper functions
+│   ├── hooks/         # Custom React hooks
+│   └── types/         # TypeScript type definitions (if present)
+├── public/            # Static assets (images, icons, etc.)
+├── styles/            # Global styles (Tailwind, custom CSS)
+├── pages/docs/        # Official documentation (Nextra)
+├── ...                # Config files, scripts, etc.
+```
+
+For more details, see our [Project Structure](/docs/project-structure) guide.
+
+## Development Workflow
+
+1. **Branch Strategy**
+   - `main`: Production-ready code
+   - `develop`: Development branch
+   - Feature branches: `feature/feature-name`
+   - Bug fixes: `fix/bug-name`
+
+2. **Code Style**
+   - Use TypeScript
+   - Follow ESLint rules
+   - Format with Prettier
+   - Write meaningful comments
+
+3. **Testing**
+   - Write unit tests for utilities
+   - Test components with React Testing Library
+   - Run tests before committing
+
+## Key Features
+
+See the [Features](/docs/features) page for a full breakdown of what DasVerb offers.
+
+1. **AI Helper**
+   - Powered by Google Gemini
+   - Real-time language assistance
+   - Context-aware responses
+
+2. **Flashcards**
+   - Interactive 3D flip animation
+   - Spaced repetition
+   - Progress tracking
+
+3. **Lessons**
+   - Structured learning paths
+   - Interactive exercises
+   - Progress tracking
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+See our [Dev Notes](/docs/dev-notes) for more details.
+
+## Common Issues
+
+### Build Errors
+- Clear `.next` directory
+- Run `npm install` again
+- Check TypeScript errors
+
+### API Issues
+- Verify API keys
+- Check environment variables
+- Review API documentation
+
+## Helpful Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [ShadCN UI Documentation](https://ui.shadcn.com)
+- [Genkit by Firebase](https://firebase.google.com/docs/genkit)
+- [Google Gemini](https://ai.google.dev/)
+- [Nextra Documentation](https://nextra.site)
+
+## Next Steps
+
+1. Explore the [Project Structure](/docs/project-structure)
+2. Read the [Changelog](/docs/changelog)
+3. Check out our [Blog](/docs/blog)
+4. See the [Features](/docs/features)
+5. Join our community
+
+## Need Help?
+
+- Open an issue on GitHub
+- Check our [Dev Notes](/docs/dev-notes)
+- Join our Discord community
+
+## Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [ShadCN UI Documentation](https://ui.shadcn.com) 
