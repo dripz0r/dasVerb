@@ -1,5 +1,7 @@
+
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
+import { WordTooltip } from '@/components/shared/word-tooltip';
 
 const previewItems = [
   {
@@ -32,7 +34,7 @@ export function PreviewsSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Sneak Peek 👀</h2>
           <p className="text-lg text-muted-foreground mt-2">
-            Get a load of what's inside. It's pretty bussin'.
+            Get a load of what's <WordTooltip germanWord="drin" englishTranslation="inside">drin</WordTooltip>. It's pretty <WordTooltip germanWord="toll" englishTranslation="great / cool">toll</WordTooltip>.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

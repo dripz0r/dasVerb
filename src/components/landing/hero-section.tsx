@@ -1,6 +1,10 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { Input } from '@/components/ui/input';
+import { WordTooltip } from '@/components/shared/word-tooltip';
+import { ClientOnly } from '@/components/shared/client-only';
 
 export function HeroSection() {
   return (
@@ -10,9 +14,9 @@ export function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold tracking-tight">
             DasVerb. <span className="text-primary">German grammar, gone hard.</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground">
-            Stop snoozing through Deutsch class. Level up your language skills with DasVerb – where learning is effective, witty, and smart.
-          </p>
+          <div className="text-lg md:text-xl text-muted-foreground">
+            Stop snoozing through Deutsch class. Level up your language skills with DasVerb – where learning is effective, witty, and <WordTooltip germanWord="klug" englishTranslation="clever / smart">klug</WordTooltip>.
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
               <Link href="/signup">Start Your Quest</Link>
@@ -21,8 +25,31 @@ export function HeroSection() {
               <Link href="/vibe-check">Take the Vibe Check</Link>
             </Button>
           </div>
+
+          {/* Email Capture Form */}
+          <div className="mt-10 pt-6 border-t border-border/30">
+            <div className="text-md font-medium text-foreground mb-3 text-center md:text-left">
+              🎁 Level up your Deutsch! Get your free learning guide:
+            </div>
+            <ClientOnly fallback={<div style={{ height: '76px' }} className="w-full opacity-0" aria-hidden="true" />}>
+              <form className="flex flex-col sm:flex-row gap-3 items-center">
+                <Input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="flex-grow text-base"
+                  aria-label="Email for free guide"
+                />
+                <Button type="submit" variant="secondary" className="shadow-md hover:shadow-lg transition-shadow w-full sm:w-auto">
+                  Get Free Guide
+                </Button>
+              </form>
+            </ClientOnly>
+            <div className="text-xs text-muted-foreground mt-2 text-center md:text-left">
+              We'll send awesome tips & resources. No spam, <WordTooltip germanWord="versprochen" englishTranslation="promised">versprochen</WordTooltip>!
+            </div>
+          </div>
         </div>
-        <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
+        <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mt-8 md:mt-0">
            <Image
             src="https://placehold.co/600x400.png"
             alt="DasVerb app preview"

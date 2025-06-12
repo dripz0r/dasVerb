@@ -1,5 +1,7 @@
+
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Gamepad2, Layers, Bot, Zap } from 'lucide-react';
+import { WordTooltip } from '@/components/shared/word-tooltip';
 
 const features = [
   {
@@ -34,9 +36,9 @@ export function FeaturesSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Why DasVerb Hits Different</h2>
-          <p className="text-lg text-muted-foreground mt-2">
-            It's not your Oma's German course. We make learning effective and, dare we say, engaging.
-          </p>
+          <div className="text-lg text-muted-foreground mt-2">
+            It's not your <WordTooltip germanWord="Oma" englishTranslation="Grandma's">Oma's</WordTooltip> German course. We make learning effective and, dare we say, <WordTooltip germanWord="interessant" englishTranslation="interesting">interessant</WordTooltip>.
+          </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature) => (
