@@ -1,3 +1,10 @@
+---
+title: UI/UX Improvements: Making DasVerb More Engaging
+date: 2024-03-09
+author: DasVerb Team
+description: A summary of recent UI/UX improvements and design philosophy for DasVerb.
+---
+
 # UI/UX Improvements: Making DasVerb More Engaging
 
 *Published: March 9, 2024*
@@ -25,12 +32,11 @@ import { cn } from '@/lib/utils';
 
 export function Card({ className, ...props }) {
   return (
-    <div
-      className={cn(
-        'rounded-lg border bg-card text-card-foreground shadow-sm',
-        className
-      )}
-      {...props}
+    <div className={cn(
+      'rounded-lg border bg-card text-card-foreground shadow-sm',
+      className
+    )}
+    {...props}
     />
   );
 }

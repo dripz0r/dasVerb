@@ -1,4 +1,4 @@
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import type { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
   logo: <span style={{ fontWeight: 'bold' }}>DasVerb</span>,
@@ -23,7 +23,7 @@ const config: DocsThemeConfig = {
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
-    titleComponent: ({ title, type }) => (
+    titleComponent: ({ title, type }: { title: string; type: string }) => (
       <span style={{ fontWeight: 'bold' }}>{title}</span>
     ),
   },
@@ -31,6 +31,8 @@ const config: DocsThemeConfig = {
     float: true,
     title: 'On This Page',
   },
+  primaryHue: 210,
+  primarySaturation: 100,
 }
 
 export default config 

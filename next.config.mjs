@@ -1,11 +1,12 @@
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
+import nextra from 'nextra'
+
+const withNextra = nextra({
   defaultShowCopyCode: true,
   staticImage: true,
-});
+})
 
-module.exports = withNextra({
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
@@ -13,4 +14,6 @@ module.exports = withNextra({
       'placehold.co',
     ],
   },
-}); 
+}
+
+export default withNextra(nextConfig) 
