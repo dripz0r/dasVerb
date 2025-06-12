@@ -1,0 +1,57 @@
+# Developer Notes & Gotchas
+
+Welcome to the DasVerb dev notes! This page is for contributors and maintainers. Here you'll find:
+- Tips for working in the codebase
+- Common gotchas
+- Logic explanations (frontend & backend)
+- How to debug and extend features
+
+---
+
+## General Tips
+- **Use the Docs:** Always check `/pages/docs/` for up-to-date structure and logic.
+- **Keep Components Small:** Break up big components into smaller, focused ones.
+- **Type Everything:** Use TypeScript for all new code and keep types in `/types/`.
+- **Test Locally:** Run `npm run dev` and check all major pages before pushing.
+- **Document as You Go:** Add comments and update docs for new features.
+
+## Frontend Logic
+- **App Router:** All routing is file-based in `/app/`. Use folders for new routes.
+- **Client vs Server:** Use server components for data fetching, client components for interactivity (add `'use client'` at the top).
+- **State Management:** Use React hooks (`useState`, `useEffect`) for local state. Use context for global state if needed.
+- **UI Consistency:** Use ShadCN UI components from `/components/ui/` for all base elements.
+- **Tooltips & Animations:** Use `WordTooltip` for instant translations. Use Tailwind for all animations and transitions.
+- **Dark Mode:** Controlled via the header toggle; uses Tailwind's dark mode classes.
+
+## Backend & AI Logic
+- **API Routes:** All backend logic is in `/app/api/`. Use these for anything that needs to be secure or use secrets.
+- **Genkit Flows:** AI logic (grammar fixer, story generator, etc.) is orchestrated in `/src/ai/flows/` and called from API routes.
+- **Google Gemini:** All AI features use Gemini via Genkit. API keys are in `.env` and never exposed to the client.
+- **Error Handling:** Always handle errors in API routes and show user-friendly messages in the UI.
+
+## Adding New Features
+1. Add UI in `/components/features/` and `/app/`.
+2. Add backend logic in `/app/api/` and `/src/ai/flows/`.
+3. Update types in `/types/`.
+4. Add docs in `/pages/docs/`.
+5. Log changes in the dev blog or changelog.
+
+## Common Gotchas
+- **Hydration Errors:** Make sure to use `'use client'` in interactive components.
+- **API Key Leaks:** Never expose secrets to the client. Use API routes for all secret logic.
+- **Turbopack Issues:** Use Webpack for dev (`npm run dev` with no `--turbopack`).
+- **MDX Docs:** All docs/blogs must be in `/pages/docs/` for Nextra v2.
+
+## Debugging
+- Use browser dev tools and console logs.
+- Check API route logs in the terminal.
+- Use the dev blog for recent changes and troubleshooting tips.
+
+## Contributing
+- Fork, branch, and PR as usual.
+- Keep the main branch clean.
+- Ask questions in the docs or dev blog!
+
+---
+
+Happy hacking! For more, see the [Project Structure](/docs/project-structure) and [Changelog](/docs/changelog). 

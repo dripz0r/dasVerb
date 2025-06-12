@@ -1,23 +1,18 @@
-import type {NextConfig} from 'next';
+import withNextra from 'nextra'
+import { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+const config: NextConfig = {
+  reactStrictMode: true,
+  transpilePackages: ['@genkit/react'],
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
+    domains: [
+      'firebasestorage.googleapis.com',
+      'placehold.co',
     ],
   },
-};
+}
 
-export default nextConfig;
+export default withNextra({
+  defaultShowCopyCode: true,
+  staticImage: true,
+})(config)
