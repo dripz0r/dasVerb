@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { BookOpen } from "lucide-react";
 import DashboardStats from "@/components/dashboard/DashboardStats";
 import DictionaryQuickView from "@/components/dashboard/DictionaryQuickView";

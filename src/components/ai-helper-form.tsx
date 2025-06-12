@@ -22,8 +22,9 @@ export default function AiHelperForm() {
       if (!res.ok) throw new Error("Failed to get answer");
       const data = await res.json();
       setAnswer(data.answer);
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Something went wrong";
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

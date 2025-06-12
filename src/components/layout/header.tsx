@@ -14,6 +14,7 @@ const navItems = [
   { href: '/grammar-fixer', label: 'Grammar Fixer' },
   { href: '/story-generator', label: 'Story Generator' },
   { href: '/ai-helper', label: 'AI Helper' },
+  { href: '/docs', label: 'Docs' },
 ];
 
 function DarkModeToggle() {

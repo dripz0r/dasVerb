@@ -1,5 +1,4 @@
 
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
@@ -49,15 +48,11 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-        <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mt-8 md:mt-0">
-           <Image
-            src="https://placehold.co/600x400.png"
-            alt="DasVerb app preview"
-            fill
-            data-ai-hint="language learning app"
-            className="object-cover"
-            priority
-          />
+        <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mt-8 md:mt-0 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+          <div className="text-white text-center">
+            <div className="text-4xl font-bold mb-2">DasVerb</div>
+            <div className="text-lg opacity-90">German Learning Made Easy</div>
+          </div>
         </div>
       </div>
     </section>
