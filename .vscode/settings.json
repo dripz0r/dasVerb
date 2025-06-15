@@ -1,4 +1,9 @@
 {
     "IDX.aI.enableInlineCompletion": true,
-    "IDX.aI.enableCodebaseIndexing": true
+    "IDX.aI.enableCodebaseIndexing": true,
+    "editor.formatOnSave": true,
+    "files.autoSave": "onWindowChange",
+    "tailwindCSS.includeLanguages": { "plaintext": "html" },
+    "editor.wordWrap": "on",
+    "typescript.tsdk": "node_modules/typescript/lib"
 }
