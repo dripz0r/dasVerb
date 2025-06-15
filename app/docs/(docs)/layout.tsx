@@ -38,7 +38,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </aside>
         {/* Main Content */}
-        <main className="flex-1 p-10 md:p-14 px-6 md:px-10 overflow-x-auto prose prose-lg max-w-3xl mx-auto dark:prose-invert dark:prose-headings:text-white dark:prose-strong:text-white dark:prose-p:text-white dark:prose-li:text-white dark:prose-a:text-primary dark:prose-code:text-white dark:prose-blockquote:text-white bg-white/90 dark:bg-[#23244a]/90 dark:text-zinc-100 shadow-xl border border-zinc-200 dark:border-zinc-700 rounded-2xl mt-8 container mx-auto">
+        <main className="flex-1 p-10 md:p-14 px-8 md:px-16 overflow-x-auto prose prose-lg max-w-3xl mx-auto dark:prose-invert dark:prose-headings:text-white dark:prose-headings:font-extrabold dark:prose-strong:text-white dark:prose-p:text-white dark:prose-li:text-white dark:prose-a:text-primary dark:prose-code:text-white dark:prose-blockquote:text-white bg-white/90 dark:bg-[#23244a]/90 dark:text-zinc-100 shadow-xl border border-zinc-200 dark:border-zinc-700 rounded-2xl mt-8 container mx-auto">
           {children}
         </main>
       </div>

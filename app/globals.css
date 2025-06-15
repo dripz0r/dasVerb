@@ -113,3 +113,23 @@ body {
 .perspective { perspective: 1000px; }
 .backface-hidden { backface-visibility: hidden; }
 .rotate-y-180 { transform: rotateY(180deg); }
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: #fff !important;
+  font-weight: 800 !important;
+}
+
+.dark .prose a {
+  color: #60aaff !important;
+  text-decoration: underline;
+}
+
+.dark .prose code,
+.dark .prose strong {
+  color: #fff !important;
+}
