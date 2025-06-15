@@ -1,13 +1,21 @@
+// src/components/ai-helper-form.tsx
+//
+// AiHelperForm is the UI for the general-purpose AI helper tool.
+// It connects to the /api/ai-helper route to answer user questions about German.
+// Handles loading, error, and response states, and is used on the /ai-helper page.
+
 'use client';
 
 import React, { useState } from "react";
 
 export default function AiHelperForm() {
+  // State for user input, AI answer, loading, and error
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // Handles form submission and calls the AI helper API route
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -48,6 +56,7 @@ export default function AiHelperForm() {
       >
         {loading ? "Thinking..." : "Ask"}
       </button>
+      {/* Display AI answer or error */}
       {answer && (
         <div className="mt-4 p-3 bg-green-100 border rounded text-green-900 whitespace-pre-line">
           <strong>AI Helper:</strong> {answer}

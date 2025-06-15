@@ -1,3 +1,10 @@
+// app/dashboard/page.tsx
+//
+// DashboardPage is the main dashboard for DasVerb users.
+// It provides an overview of user progress, quick access to dictionary and grammar lessons, and tracks stats.
+// Uses tabbed navigation to switch between Overview, Dictionary, and Grammar Lessons views.
+// Connects to DashboardStats, DictionaryQuickView, and GrammarQuickView components for content.
+
 "use client";
 
 import { useState } from "react";
@@ -6,9 +13,11 @@ import DashboardStats from "@/components/dashboard/DashboardStats";
 import DictionaryQuickView from "@/components/dashboard/DictionaryQuickView";
 import GrammarQuickView from "@/components/dashboard/GrammarQuickView";
 
+// Tab labels for dashboard navigation
 const TABS = ["Overview", "Dictionary", "Grammar Lessons"];
 
 export default function DashboardPage() {
+  // State for active tab
   const [activeTab, setActiveTab] = useState("Overview");
   return (
     <div className="container mx-auto px-4 md:px-6 flex flex-col items-center min-h-[calc(100vh-8rem)] mt-8">
@@ -22,7 +31,7 @@ export default function DashboardPage() {
             Welcome back! Track your progress, streaks, and stats as you master German with DasVerb.
           </p>
         </div>
-        {/* Tab Bar */}
+        {/* Tab Bar for switching dashboard views */}
         <div className="flex gap-2 bg-muted rounded-lg p-1 shadow-inner justify-center w-full md:w-auto mt-4 md:mt-0">
           {TABS.map((tab) => (
             <button
@@ -35,7 +44,7 @@ export default function DashboardPage() {
           ))}
         </div>
       </div>
-      {/* Tab Content */}
+      {/* Tab Content: Renders the selected dashboard section */}
       <div className="w-full max-w-4xl flex flex-col gap-8 items-center">
         {activeTab === "Overview" && <DashboardStats />}
         {activeTab === "Dictionary" && <DictionaryQuickView />}

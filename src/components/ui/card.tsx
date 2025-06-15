@@ -1,7 +1,14 @@
+// src/components/ui/card.tsx
+//
+// Card and its subcomponents provide a consistent card UI pattern for the app.
+// Used for dashboards, AI tools, docs, and more. Each subcomponent (Header, Title, Content, Footer, etc.)
+// is a styled wrapper for layout and visual consistency. All accept className for custom styling.
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+// Main Card container. Use for wrapping content in a card UI.
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -17,6 +24,7 @@ const Card = React.forwardRef<
 ))
 Card.displayName = "Card"
 
+// CardHeader: Use for the top section of a card (title, description, etc.)
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -29,6 +37,7 @@ const CardHeader = React.forwardRef<
 ))
 CardHeader.displayName = "CardHeader"
 
+// CardTitle: Use for the main heading inside a card
 const CardTitle = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -44,6 +53,7 @@ const CardTitle = React.forwardRef<
 ))
 CardTitle.displayName = "CardTitle"
 
+// CardDescription: Use for secondary text or description in a card
 const CardDescription = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -56,6 +66,7 @@ const CardDescription = React.forwardRef<
 ))
 CardDescription.displayName = "CardDescription"
 
+// CardContent: Main content area of the card
 const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -64,6 +75,7 @@ const CardContent = React.forwardRef<
 ))
 CardContent.displayName = "CardContent"
 
+// CardFooter: Bottom section for actions or summary
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>

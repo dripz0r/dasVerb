@@ -1,6 +1,14 @@
+// app/docs/(docs)/layout.tsx
+//
+// This is the main layout for the documentation section of DasVerb.
+// It provides a sidebar navigation, a styled header, and a card-like main content area for all docs pages.
+// The sidebar links to all major docs sections, and the layout ensures consistent margins, dark mode support, and visual polish.
+// Used by all pages under /docs.
+
 import React from "react";
 import Link from "next/link";
 
+// Sidebar navigation items for docs
 const docsNav = [
   { label: "Welcome", href: "/docs" },
   { label: "Getting Started", href: "/docs/getting-started" },
@@ -16,6 +24,7 @@ const docsNav = [
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex bg-background text-foreground dark:bg-zinc-900 dark:text-zinc-100">
+      {/* Docs header with gradient branding */}
       <header className="p-6 border-b border-purple-200 bg-white/80 dark:bg-[#23244a]/90 backdrop-blur-md shadow-sm flex items-center justify-between">
         <span className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-400 drop-shadow-sm">
           DasVerb Docs
@@ -23,7 +32,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         <span className="text-xs text-purple-500 font-semibold tracking-widest uppercase">Learn. Build. Share.</span>
       </header>
       <div className="flex flex-1 w-full">
-        {/* Sidebar */}
+        {/* Sidebar navigation for docs sections */}
         <aside className="w-64 min-h-screen border-r bg-muted/50 dark:bg-[#18192b]/90 dark:border-[#23244a] p-6">
           <nav className="space-y-2">
             {docsNav.map((item) => (
@@ -37,7 +46,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
             ))}
           </nav>
         </aside>
-        {/* Main Content */}
+        {/* Main docs content area, styled as a card for readability and polish */}
         <main className="flex-1 p-10 md:p-14 px-8 md:px-16 overflow-x-auto prose prose-lg max-w-3xl mx-auto dark:prose-invert dark:prose-headings:text-white dark:prose-headings:font-extrabold dark:prose-strong:text-white dark:prose-p:text-white dark:prose-li:text-white dark:prose-a:text-primary dark:prose-code:text-white dark:prose-blockquote:text-white bg-white/90 dark:bg-[#23244a]/90 dark:text-zinc-100 shadow-xl border border-zinc-200 dark:border-zinc-700 rounded-2xl mt-8 container mx-auto">
           {children}
         </main>

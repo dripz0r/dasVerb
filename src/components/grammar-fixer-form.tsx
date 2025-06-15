@@ -13,6 +13,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 
+// Form validation schema
 const formSchema = z.object({
   sentence: z.string().min(5, { message: "Sentence must be at least 5 characters long." }).max(500, { message: "Sentence must be at most 500 characters long." }),
 });
@@ -20,10 +21,12 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 export function GrammarFixerForm() {
+  // State for async transitions and AI result
   const [isPending, startTransition] = useTransition();
   const [result, setResult] = useState<CorrectGrammarOutput | null>(null);
   const { toast } = useToast();
 
+  // Set up react-hook-form
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,6 +34,7 @@ export function GrammarFixerForm() {
     },
   });
 
+  // Handles form submission and calls the AI backend
   const onSubmit: SubmitHandler<FormData> = (data) => {
     setResult(null);
     startTransition(async () => {
@@ -54,6 +58,7 @@ export function GrammarFixerForm() {
   };
 
   return (
+    // Card UI for the grammar fixer tool
     <Card className="w-full max-w-2xl shadow-xl">
       <CardHeader>
         <div className="flex items-center gap-2 mb-2">
@@ -67,6 +72,7 @@ export function GrammarFixerForm() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent className="space-y-6">
+            {/* Input field for the user's German sentence */}
             <FormField
               control={form.control}
               name="sentence"
@@ -94,11 +100,13 @@ export function GrammarFixerForm() {
           </CardFooter>
         </form>
       </Form>
+      {/* Loading state */}
       {isPending && (
         <div className="p-6 text-center">
           <p className="text-muted-foreground animate-pulse">Hold tight, DasVerb is working its magic...</p>
         </div>
       )}
+      {/* Display AI result */}
       {result && !isPending && (
         <CardContent className="mt-6 border-t pt-6">
           <h3 className="text-xl font-headline font-semibold mb-4">Guru's Verdict:</h3>

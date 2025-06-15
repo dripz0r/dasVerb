@@ -8,6 +8,7 @@ import { Menu, Rocket, Github, Globe, MessageCircle, Sun, Moon } from 'lucide-re
 import { useEffect, useState } from 'react';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
+// Main navigation items for the app
 const navItems = [
   { href: '/dashboard', label: 'Dashboard' },
   { href: '/lessons', label: 'Lessons' },
@@ -18,6 +19,7 @@ const navItems = [
   { href: '/docs', label: 'Docs' },
 ];
 
+// Docs dropdown navigation items
 const docsNav = [
   { label: "Welcome", href: "/docs" },
   { label: "Getting Started", href: "/docs/getting-started" },
@@ -30,6 +32,7 @@ const docsNav = [
   { label: "Blog", href: "/docs/blog" },
 ];
 
+// Dark mode toggle button (client-side only)
 function DarkModeToggle() {
   const [dark, setDark] = useState(false);
   useEffect(() => {
@@ -56,6 +59,7 @@ export function Header() {
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Logo />
         
+        {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           {navItems.map((item) =>
             item.label === "Docs" ? (
@@ -103,6 +107,7 @@ export function Header() {
           </Button>
         </div>
 
+        {/* Mobile navigation (hamburger menu) */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>

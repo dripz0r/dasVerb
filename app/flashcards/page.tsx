@@ -1,7 +1,15 @@
+// app/flashcards/page.tsx
+//
+// FlashcardsPage displays a sample set of German vocab flashcards.
+// Shows a grid of static flashcards and a header card with info about upcoming features.
+// Uses the Flashcard component for each vocab card.
+// This is the main entry point for /flashcards.
+
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Layers } from "lucide-react";
 import { Flashcard } from "@/components/ui/Flashcard";
 
+// Example static flashcards to display
 const staticFlashcards = [
   { german: "Hund", english: "dog", example: "Der Hund schläft." },
   { german: "Katze", english: "cat", example: "Die Katze trinkt Milch." },
@@ -13,6 +21,7 @@ const staticFlashcards = [
 export default function FlashcardsPage() {
   return (
     <div className="container mx-auto px-4 md:px-6 flex flex-col items-center min-h-[calc(100vh-8rem)]">
+      {/* Page header card */}
       <Card className="w-full max-w-md text-center shadow-xl mb-8">
         <CardHeader>
           <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit mb-4">
@@ -27,6 +36,7 @@ export default function FlashcardsPage() {
           </CardDescription>
         </CardContent>
       </Card>
+      {/* Flashcard grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {staticFlashcards.map((card, i) => (
           <Flashcard key={i} {...card} />
