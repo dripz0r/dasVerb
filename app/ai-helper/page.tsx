@@ -4,7 +4,7 @@ import { HelpCircle } from "lucide-react";
 
 export default function AiHelperPage() {
   return (
-    <div className="flex flex-col items-center min-h-[calc(100vh-8rem)]">
+    <div className="container mx-auto px-4 md:px-6 flex flex-col items-center min-h-[calc(100vh-8rem)]">
       <Card className="w-full max-w-2xl shadow-xl">
         <CardHeader>
           <div className="flex items-center gap-2 mb-2">

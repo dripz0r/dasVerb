@@ -11,9 +11,9 @@ const TABS = ["Overview", "Dictionary", "Grammar Lessons"];
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState("Overview");
   return (
-    <div className="flex flex-col items-center min-h-[calc(100vh-8rem)]">
+    <div className="container mx-auto px-4 md:px-6 flex flex-col items-center min-h-[calc(100vh-8rem)] mt-8">
       {/* Section Header and Tabs */}
-      <div className="w-full max-w-5xl flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
+      <div className="w-full max-w-4xl flex flex-col items-center justify-center mb-8 gap-4">
         <div>
           <h1 className="text-4xl font-headline font-bold flex items-center gap-3 mb-2">
             <BookOpen className="h-10 w-10 text-primary" /> Dashboard
@@ -23,7 +23,7 @@ export default function DashboardPage() {
           </p>
         </div>
         {/* Tab Bar */}
-        <div className="flex gap-2 bg-muted rounded-lg p-1 shadow-inner justify-center w-full md:w-auto">
+        <div className="flex gap-2 bg-muted rounded-lg p-1 shadow-inner justify-center w-full md:w-auto mt-4 md:mt-0">
           {TABS.map((tab) => (
             <button
               key={tab}
@@ -36,9 +36,11 @@ export default function DashboardPage() {
         </div>
       </div>
       {/* Tab Content */}
-      {activeTab === "Overview" && <DashboardStats />}
-      {activeTab === "Dictionary" && <DictionaryQuickView />}
-      {activeTab === "Grammar Lessons" && <GrammarQuickView />}
+      <div className="w-full max-w-4xl flex flex-col gap-8 items-center">
+        {activeTab === "Overview" && <DashboardStats />}
+        {activeTab === "Dictionary" && <DictionaryQuickView />}
+        {activeTab === "Grammar Lessons" && <GrammarQuickView />}
+      </div>
     </div>
   );
 }

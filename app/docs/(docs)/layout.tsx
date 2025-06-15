@@ -15,8 +15,8 @@ const docsNav = [
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 text-gray-900 dark:bg-gradient-to-br dark:from-[#18192a] dark:via-[#1a1b2e] dark:to-[#23244a] dark:text-gray-100 flex flex-col">
-      <header className="p-6 border-b border-purple-200 bg-white/80 dark:bg-[#23244a]/80 backdrop-blur-md shadow-sm flex items-center justify-between">
+    <div className="min-h-screen flex bg-background text-foreground dark:bg-zinc-900 dark:text-zinc-100">
+      <header className="p-6 border-b border-purple-200 bg-white/80 dark:bg-[#23244a]/90 backdrop-blur-md shadow-sm flex items-center justify-between">
         <span className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-400 drop-shadow-sm">
           DasVerb Docs
         </span>
@@ -24,7 +24,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       </header>
       <div className="flex flex-1 w-full">
         {/* Sidebar */}
-        <aside className="hidden md:block w-64 border-r border-purple-100 bg-white/60 dark:bg-[#18192a]/80 dark:border-[#23244a] backdrop-blur-md p-6">
+        <aside className="w-64 min-h-screen border-r bg-muted/50 dark:bg-[#18192b]/90 dark:border-[#23244a] p-6">
           <nav className="space-y-2">
             {docsNav.map((item) => (
               <Link
@@ -38,7 +38,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </aside>
         {/* Main Content */}
-        <main className="flex-1 p-4 md:p-8 max-w-3xl mx-auto w-full prose prose-zinc dark:prose-invert prose-headings:font-headline prose-headings:font-bold prose-a:text-primary prose-a:underline-offset-2 prose-a:font-medium prose-blockquote:border-l-primary/40 prose-blockquote:bg-primary/5 prose-blockquote:rounded-r-lg prose-blockquote:p-2 prose-blockquote:font-medium prose-blockquote:text-primary/80 prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-pre:bg-muted prose-pre:rounded-lg prose-pre:p-4 prose-pre:text-xs prose-pre:overflow-x-auto bg-white/90 dark:bg-[#23244a]/90 rounded-xl shadow-lg">
+        <main className="flex-1 p-10 md:p-14 px-6 md:px-10 overflow-x-auto prose prose-lg max-w-3xl mx-auto dark:prose-invert dark:prose-headings:text-white dark:prose-strong:text-white dark:prose-p:text-white dark:prose-li:text-white dark:prose-a:text-primary dark:prose-code:text-white dark:prose-blockquote:text-white bg-white/90 dark:bg-[#23244a]/90 dark:text-zinc-100 shadow-xl border border-zinc-200 dark:border-zinc-700 rounded-2xl mt-8 container mx-auto">
           {children}
         </main>
       </div>
