@@ -37,7 +37,7 @@ export default function AiHelperForm() {
         className="w-full p-2 border rounded min-h-[80px] text-base resize-none bg-white text-black border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 dark:placeholder-zinc-500"
         rows={3}
         value={question}
-        onChange={e => setQuestion(e.target.value)}
+        onChange={(e) => setQuestion(e.target.value)}
         placeholder="How do I say 'good morning' in German? Explain the dative case..."
         required
       />

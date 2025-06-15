@@ -1,4 +1,3 @@
-
 "use client";
 
 import type { GenerateStoryOutput } from "@/ai/flows/ai-story-generator";

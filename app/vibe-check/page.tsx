@@ -1,4 +1,3 @@
-
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
@@ -7,7 +6,7 @@ import { WordTooltip } from "@/components/shared/word-tooltip";
 
 export default function VibeCheckPage() {
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6 flex justify-center items-center min-h-[calc(100vh-8rem)]">
+    <div className="flex justify-center items-center min-h-[calc(100vh-8rem)]">
       <Card className="w-full max-w-lg text-center shadow-xl">
         <CardHeader>
           <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit mb-4">

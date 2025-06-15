@@ -11,7 +11,7 @@ const TABS = ["Overview", "Dictionary", "Grammar Lessons"];
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState("Overview");
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6 flex flex-col items-center min-h-[calc(100vh-8rem)]">
+    <div className="flex flex-col items-center min-h-[calc(100vh-8rem)]">
       {/* Section Header and Tabs */}
       <div className="w-full max-w-5xl flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
         <div>

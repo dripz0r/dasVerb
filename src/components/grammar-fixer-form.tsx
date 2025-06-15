@@ -1,4 +1,3 @@
-
 "use client";
 
 import type { CorrectGrammarOutput } from "@/ai/flows/grammar-fixer";
