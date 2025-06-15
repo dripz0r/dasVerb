@@ -23,7 +23,7 @@ export default function DashboardPage() {
           </p>
         </div>
         {/* Tab Bar */}
-        <div className="flex gap-2 bg-muted rounded-lg p-1 shadow-inner">
+        <div className="flex gap-2 bg-muted rounded-lg p-1 shadow-inner justify-center w-full md:w-auto">
           {TABS.map((tab) => (
             <button
               key={tab}

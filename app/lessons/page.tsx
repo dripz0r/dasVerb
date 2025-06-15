@@ -36,7 +36,7 @@ const exampleLessons = [
 
 export default function LessonsPage() {
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6 flex flex-col items-center min-h-[calc(100vh-8rem)]">
+    <div className="container mx-auto py-12 px-4 md:px-6 flex flex-col items-center min-h-[calc(100vh-8rem)] mt-8">
       <Card className="w-full max-w-md text-center shadow-xl mb-8">
         <CardHeader>
           <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit mb-4">

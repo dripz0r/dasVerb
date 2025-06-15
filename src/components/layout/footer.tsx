@@ -13,6 +13,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-2 font-headline">Quick Links</h4>
             <ul className="space-y-1">
+              <li><Link href="/docs" className="text-sm hover:text-primary transition-colors">Docs</Link></li>
               <li><Link href="/about" className="text-sm hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/contact" className="text-sm hover:text-primary transition-colors">Contact</Link></li>
               <li><Link href="/privacy" className="text-sm hover:text-primary transition-colors">Privacy Policy</Link></li>
