@@ -1,109 +1,68 @@
----
-title: Project Structure
-description: An overview of the DasVerb codebase and folder organization.
----
-
 # Project Structure
 
-This document outlines the organization of the DasVerb codebase and explains the purpose of each major directory and file, with extra dev notes and logic explanations. This version reflects the actual `src` folder structure, which is the heart of the app's interface and logic.
+_Updated June 2024: This reflects the latest refactor, universal margins, dark mode polish, and AI integration fixes._
+
+> **Note:** You may see duplicate folders (e.g., `dashboard` and `dashboard 2`) in the `app/` directory. These are a known issue—ignore the `2` folders for now. All real routes and features are in the non-`2` folders.
 
 ## Directory Structure
 
 ```
 dasVerb/
-├── src/
-│   ├── app/           # Main Next.js App Router (routes, pages, layouts, API)
-│   ├── components/    # All React components (UI, features, layout, shared)
-│   ├── ai/            # AI logic, Genkit flows, and integration with Gemini
-│   ├── lib/           # Shared utilities and helper functions
-│   ├── hooks/         # Custom React hooks
-│   └── types/         # TypeScript type definitions (if present)
-├── public/            # Static assets (images, icons, etc.)
-├── styles/            # Global styles (Tailwind, custom CSS)
-├── pages/docs/        # Official documentation (Nextra)
-├── ...                # Config files, scripts, etc.
+├── app/                # Main Next.js App Router (routes, pages, layouts, API)
+│   ├── dashboard/      # Dashboard page and widgets
+│   ├── lessons/        # Lessons library and progress
+│   ├── flashcards/     # Flashcard decks
+│   ├── ai-helper/      # General AI helper tool
+│   ├── grammar-fixer/  # AI grammar correction tool
+│   ├── story-generator/# AI story generator tool
+│   ├── docs/           # Documentation (Nextra-powered)
+│   ├── ...             # Other feature folders (login, signup, vibe-check, etc.)
+│   ├── api/            # API routes (serverless functions)
+│   ├── layout.tsx      # Global layout (header, footer, container)
+│   ├── globals.css     # Main CSS import for Tailwind
+│   └── page.tsx        # Main landing page
+├── src/                # Source code (components, ai, hooks, lib)
+│   ├── components/     # All React components (UI, features, layout, shared)
+│   ├── ai/             # AI logic, Genkit flows, and Gemini integration
+│   ├── lib/            # Shared utilities and helper functions
+│   ├── hooks/          # Custom React hooks
+│   └── types/          # TypeScript type definitions (if present)
+├── public/             # Static assets (images, icons, etc.)
+├── styles/             # Global styles (Tailwind, custom CSS)
+├── ...                 # Config files, scripts, etc.
 ```
 
-## `src/` Folder Breakdown
+## Key Updates (2024)
+- **Universal Margins & Containers:** All pages now use a consistent container for perfect margins and layout.
+- **Dark Mode Polish:** Docs, dashboard, and all main pages have improved dark mode readability and style.
+- **AI API Integration:** Gemini API key and routes fixed; all AI tools now work reliably.
+- **Docs & Dashboard Consistency:** Visual polish and card-like layouts across all main sections.
+- **Duplicate Folders:** Ignore any `2` folders in `app/`—these are a known artifact and not used.
+- **Improved Comments:** All key files now have up-to-date comments and logic explanations.
 
-### `/src/app/`
-- **Purpose:** Main entry for all routes, layouts, and API endpoints using Next.js App Router.
-- **Structure:**
-  - Each folder = a route (e.g., `/dashboard`, `/lessons`, `/flashcards`, `/ai-helper`, `/vibe-check`, `/signup`, `/login`, `/grammar-fixer`, `/story-generator`)
-  - `api/` — API routes (serverless functions, e.g., `/api/ai-helper/route.ts`)
-  - `layout.tsx` — Global layout (header, footer, providers)
-  - `globals.css` — Main CSS import for Tailwind
-  - `page.tsx` — Main landing page
-- **Dev Note:** Add new pages/routes here. Use API routes for backend logic.
+## `/app/` Folder Breakdown
+- **dashboard/**, **lessons/**, **flashcards/**, **ai-helper/**, **grammar-fixer/**, **story-generator/**: Main feature pages and tools.
+- **docs/**: All documentation, including this page.
+- **api/**: API routes for AI and backend logic.
+- **layout.tsx**: Global layout (header, footer, container, Toaster).
+- **globals.css**: Tailwind and custom CSS.
+- **page.tsx**: Main landing page.
 
-### `/src/components/`
-- **Purpose:** All React components, organized for reusability and clarity.
-- **Structure:**
-  - `ui/` — ShadCN UI components (Button, Card, Input, etc.)
-  - `dashboard/` — Dashboard-specific widgets (stats, quick views)
-  - `layout/` — Header, Footer, and layout wrappers
-  - `landing/` — Landing page sections (hero, features, testimonials, etc.)
-  - `shared/` — Reusable helpers (WordTooltip, ClientOnly, etc.)
-  - `ai-helper-form.tsx`, `grammar-fixer-form.tsx`, `story-generator-form.tsx` — Feature forms
-  - `logo.tsx` — Animated gradient logo
-- **Dev Note:** Add new UI elements to `ui/`, feature widgets to their own files or folders.
+## `/src/` Folder Breakdown
+- **components/**: All React components (UI, layout, feature forms, etc.)
+- **ai/**: Genkit flows and Gemini integration
+- **lib/**: Shared utilities
+- **hooks/**: Custom React hooks
+- **types/**: TypeScript types (if present)
 
-### `/src/ai/`
-- **Purpose:** All AI and backend logic, especially Genkit flows and Gemini integration.
-- **Structure:**
-  - `flows/` — Each file is a Genkit flow (e.g., `ai-helper-flow.ts`, `grammar-fixer.ts`, `ai-story-generator.ts`, `word-details-flow.ts`)
-  - `genkit.ts` — Genkit initialization/config
-  - `dev.ts` — Genkit dev server entry
-- **Dev Note:** Add new AI flows in `flows/`. Keep all AI logic here, not in the frontend.
-
-### `/src/lib/`
-- **Purpose:** Shared utilities and helper functions.
-- **Structure:**
-  - `utils.ts` — General helpers (formatting, etc.)
-- **Dev Note:** Add shared logic here to keep components/pages clean.
-
-### `/src/hooks/`
-- **Purpose:** Custom React hooks for state, effects, and UI logic.
-- **Structure:**
-  - `use-mobile.tsx` — Detects mobile devices
-  - `use-toast.ts` — Toast notification logic
-- **Dev Note:** Add new hooks here for reuse across the app.
-
-### `/src/types/`
-- **Purpose:** TypeScript type definitions and interfaces (if present).
-- **Dev Note:** Keep types up to date as you add features.
+## Best Practices
+- Add new features in `/app/` and `/src/components/`.
+- Keep AI/backend logic in `/src/ai/` and `/app/api/`.
+- Use universal containers for all main pages.
+- Use Tailwind for styling; dark mode is handled globally.
+- Update comments and docs as you go.
+- See the [Changelog](/docs/changelog) for recent updates.
 
 ---
 
-## Other Key Folders
-
-### `/public/`
-- **Purpose:** Static assets (images, lesson art, icons, etc.)
-- **Dev Note:** Use for anything that should be directly accessible.
-
-### `/styles/`
-- **Purpose:** Tailwind config and global CSS.
-- **Dev Note:** Use Tailwind for all styling; add custom classes here if needed.
-
-### `/pages/docs/`
-- **Purpose:** All official documentation, blog, and dev notes (Nextra-powered).
-
----
-
-## Adding Features & Best Practices
-1. Add UI in `/src/components/` and `/src/app/` as needed.
-2. Add backend/AI logic in `/src/ai/` and `/src/app/api/`.
-3. Add shared logic in `/src/lib/` and `/src/hooks/`.
-4. Update types in `/src/types/`.
-5. Document in `/pages/docs/`.
-
-- Use React hooks for state and effects.
-- Use server components for data fetching, client components for interactivity.
-- Keep logic modular and reusable.
-- Use environment variables for secrets.
-- Write clear comments and update docs as you go.
-- Test new features locally before pushing.
-
----
-
-For more, see `/pages/docs/dev-notes.mdx` and the dev blog! 
+For more, see [Dev Notes](/docs/dev-notes), [Changelog](/docs/changelog), and the dev blog! 

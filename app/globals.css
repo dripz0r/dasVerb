@@ -133,3 +133,17 @@ body {
 .dark .prose strong {
   color: #fff !important;
 }
+
+/* Force code, pre, and inline code to be light in dark mode for docs readability */
+@media (prefers-color-scheme: dark) {
+  code, pre, .prose code, .prose pre {
+    color: #e0e0e0 !important;
+    background: #23244a !important;
+  }
+  blockquote, .prose blockquote {
+    color: #e0e0e0 !important;
+  }
+  .text-muted-foreground, .prose .text-muted-foreground {
+    color: #b0b0b0 !important;
+  }
+}

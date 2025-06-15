@@ -33,7 +33,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       </header>
       <div className="flex flex-1 w-full">
         {/* Sidebar navigation for docs sections */}
-        <aside className="w-64 min-h-screen border-r bg-muted/50 dark:bg-[#18192b]/90 dark:border-[#23244a] p-6">
+        <aside className="w-64 min-h-screen border-r bg-muted/50 dark:bg-[#18192b]/90 dark:border-[#23244a] p-6 ml-[-2rem]">
           <nav className="space-y-2">
             {docsNav.map((item) => (
               <Link
@@ -47,8 +47,11 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </aside>
         {/* Main docs content area, styled as a card for readability and polish */}
-        <main className="flex-1 p-10 md:p-14 px-8 md:px-16 overflow-x-auto prose prose-lg max-w-3xl mx-auto dark:prose-invert dark:prose-headings:text-white dark:prose-headings:font-extrabold dark:prose-strong:text-white dark:prose-p:text-white dark:prose-li:text-white dark:prose-a:text-primary dark:prose-code:text-white dark:prose-blockquote:text-white bg-white/90 dark:bg-[#23244a]/90 dark:text-zinc-100 shadow-xl border border-zinc-200 dark:border-zinc-700 rounded-2xl mt-8 container mx-auto">
-          {children}
+        <main className="flex-1 p-10 md:p-14 px-8 md:px-16 mt-8 ml-4 md:ml-8 mx-auto overflow-x-auto max-w-3xl bg-white/90 dark:bg-[#23244a]/90 dark:text-zinc-100 shadow-xl border border-zinc-200 dark:border-zinc-700 rounded-2xl container">
+          <div className="prose prose-lg pt-12 pb-20 dark:prose-invert dark:text-zinc-200 dark:prose-headings:text-white dark:prose-headings:font-extrabold dark:prose-strong:text-white dark:prose-p:text-white dark:prose-li:text-white dark:prose-a:text-primary dark:prose-code:text-white dark:prose-blockquote:text-white">
+            <div className="h-12" />
+            {children}
+          </div>
         </main>
       </div>
     </div>

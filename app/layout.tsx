@@ -25,7 +25,7 @@ export default function RootLayout({
         <main className="flex-grow py-12">
           {/* Universal container for all main content, ensures consistent margins */}
           <div className="container mx-auto px-4 md:px-6">
-            {children}
+          {children}
           </div>
         </main>
         {/* Global site footer */}

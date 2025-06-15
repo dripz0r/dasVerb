@@ -76,13 +76,13 @@ export function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
-              >
-                {item.label}
-              </Link>
+            <Link
+              key={item.label}
+              href={item.href}
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              {item.label}
+            </Link>
             )
           )}
         </nav>
@@ -102,7 +102,7 @@ export function Header() {
           <Button variant="ghost" asChild>
             <Link href="/login">Login</Link>
           </Button>
-          <Button asChild>
+          <Button asChild className="mr-4">
             <Link href="/signup">Sign Up</Link>
           </Button>
         </div>
