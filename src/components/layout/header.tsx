@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Rocket, Github, Globe, MessageCircle, Sun, Moon } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard' },
@@ -15,6 +16,18 @@ const navItems = [
   { href: '/story-generator', label: 'Story Generator' },
   { href: '/ai-helper', label: 'AI Helper' },
   { href: '/docs', label: 'Docs' },
+];
+
+const docsNav = [
+  { label: "Welcome", href: "/docs" },
+  { label: "Getting Started", href: "/docs/getting-started" },
+  { label: "Project Structure", href: "/docs/project-structure" },
+  { label: "Features", href: "/docs/features" },
+  { label: "Blueprint", href: "/docs/blueprint" },
+  { label: "Changelog", href: "/docs/changelog" },
+  { label: "Dev Notes", href: "/docs/dev-notes" },
+  { label: "Using Docs", href: "/docs/using-docs" },
+  { label: "Blog", href: "/docs/blog" },
 ];
 
 function DarkModeToggle() {
@@ -44,15 +57,30 @@ export function Header() {
         <Logo />
         
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.label === "Docs" ? (
+              <DropdownMenu key={item.label}>
+                <DropdownMenuTrigger asChild>
+                  <span className="transition-colors hover:text-foreground/80 text-foreground/60 cursor-pointer">{item.label}</span>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  {docsNav.map((doc) => (
+                    <DropdownMenuItem key={doc.href} asChild>
+                      <Link href={doc.href}>{doc.label}</Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">

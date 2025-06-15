@@ -1,4 +1,17 @@
 import React from "react";
+import Link from "next/link";
+
+const docsNav = [
+  { label: "Welcome", href: "/docs" },
+  { label: "Getting Started", href: "/docs/getting-started" },
+  { label: "Project Structure", href: "/docs/project-structure" },
+  { label: "Features", href: "/docs/features" },
+  { label: "Blueprint", href: "/docs/blueprint" },
+  { label: "Changelog", href: "/docs/changelog" },
+  { label: "Dev Notes", href: "/docs/dev-notes" },
+  { label: "Using Docs", href: "/docs/using-docs" },
+  { label: "Blog", href: "/docs/blog" },
+];
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,9 +22,26 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         </span>
         <span className="text-xs text-purple-500 font-semibold tracking-widest uppercase">Learn. Build. Share.</span>
       </header>
-      <main className="flex-1 p-8 max-w-3xl mx-auto w-full">
-        {children}
-      </main>
+      <div className="flex flex-1 w-full">
+        {/* Sidebar */}
+        <aside className="hidden md:block w-64 border-r border-purple-100 bg-white/60 backdrop-blur-md p-6">
+          <nav className="space-y-2">
+            {docsNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block px-3 py-2 rounded-lg font-medium text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </aside>
+        {/* Main Content */}
+        <main className="flex-1 p-4 md:p-8 max-w-3xl mx-auto w-full prose prose-zinc prose-headings:font-headline prose-headings:font-bold prose-a:text-primary prose-a:underline-offset-2 prose-a:font-medium prose-blockquote:border-l-primary/40 prose-blockquote:bg-primary/5 prose-blockquote:rounded-r-lg prose-blockquote:p-2 prose-blockquote:font-medium prose-blockquote:text-primary/80 prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-pre:bg-muted prose-pre:rounded-lg prose-pre:p-4 prose-pre:text-xs prose-pre:overflow-x-auto">
+          {children}
+        </main>
+      </div>
     </div>
   );
 } 
