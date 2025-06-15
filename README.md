@@ -8,7 +8,7 @@ Stop snoozing through Deutsch class. Level up your language skills with DasVerb 
 
 ## 📚 Official Documentation
 
-- **Full docs, dev notes, and blog:** [See `/docs`](http://localhost:9002/docs) (or `/pages/docs/` in the repo)
+- **Full docs, dev notes, and blog:** [See `/docs`](http://localhost:9002/docs) (or `/app/docs/(docs)/` in the repo)
 - For deep dives, logic explanations, and dev onboarding, always check the docs!
 
 ---
@@ -16,15 +16,15 @@ Stop snoozing through Deutsch class. Level up your language skills with DasVerb 
 ## 🛠️ How It Works
 
 - **Frontend:** Next.js (App Router), React, TypeScript, Tailwind, ShadCN UI
-  - All routing is file-based in `/src/app/`
+  - All routing is file-based in `/app/`
   - UI is built from modular components in `/src/components/`
   - State is managed with React hooks and context
   - Animations, tooltips, and dark mode are all handled with Tailwind and ShadCN
 - **Backend:** Next.js API routes, Genkit, Google Gemini
-  - All backend logic is in `/src/app/api/`
+  - All backend logic is in `/app/api/`
   - AI features use Genkit flows in `/src/ai/flows/` and Google Gemini
-  - API keys and secrets are stored in `.env` and never exposed to the client
-- **Docs:** All official docs, dev notes, and blog are in `/pages/docs/` (Nextra-powered)
+  - API keys and secrets are stored in `.env.local` and never exposed to the client
+- **Docs:** All official docs, dev notes, and blog are in `/app/docs/(docs)/` (MDX-based)
 
 ---
 
@@ -32,6 +32,7 @@ Stop snoozing through Deutsch class. Level up your language skills with DasVerb 
 
 **Changelog & Progress Blog**
 
+- **Project Cleanup:** All duplicate '2' folders and files have been removed for a clean, organized structure.
 - **Dark Mode Toggle:** Instantly switch between light and dark themes for eye comfort.
 - **Animated Gradient Logo:** The DasVerb logo now features a beautiful, animated gradient for modern branding.
 - **Dictionary Revamp:**
@@ -90,20 +91,31 @@ DasVerb is a Next.js application built with a focus on a clean, modern user expe
 
 ```
 dasVerb/
-├── src/
-│   ├── app/           # Main Next.js App Router (routes, pages, layouts, API)
-│   ├── components/    # All React components (UI, features, layout, shared)
-│   ├── ai/            # AI logic, Genkit flows, and integration with Gemini
-│   ├── lib/           # Shared utilities and helper functions
-│   ├── hooks/         # Custom React hooks
-│   └── types/         # TypeScript type definitions (if present)
-├── public/            # Static assets (images, icons, etc.)
-├── styles/            # Global styles (Tailwind, custom CSS)
-├── pages/docs/        # Official documentation (Nextra)
-├── ...                # Config files, scripts, etc.
+├── app/                # Main Next.js App Router (routes, pages, layouts, API)
+│   ├── dashboard/      # Dashboard page and widgets
+│   ├── lessons/        # Lessons library and progress
+│   ├── flashcards/     # Flashcard decks
+│   ├── ai-helper/      # General AI helper tool
+│   ├── grammar-fixer/  # AI grammar correction tool
+│   ├── story-generator/# AI story generator tool
+│   ├── docs/           # Documentation (MDX-based)
+│   ├── ...             # Other feature folders (login, signup, vibe-check, etc.)
+│   ├── api/            # API routes (serverless functions)
+│   ├── layout.tsx      # Global layout (header, footer, container)
+│   ├── globals.css     # Main CSS import for Tailwind
+│   └── page.tsx        # Main landing page
+├── src/                # Source code (components, ai, hooks, lib)
+│   ├── components/     # All React components (UI, features, layout, shared)
+│   ├── ai/             # AI logic, Genkit flows, and Gemini integration
+│   ├── lib/            # Shared utilities and helper functions
+│   ├── hooks/          # Custom React hooks
+│   └── types/          # TypeScript type definitions (if present)
+├── public/             # Static assets (images, icons, etc.)
+├── styles/             # Global styles (Tailwind, custom CSS)
+├── ...                 # Config files, scripts, etc.
 ```
 
-### `/src/app/`
+### `/app/`
 - Main entry for all routes, layouts, and API endpoints using Next.js App Router.
 - Each folder = a route (e.g., `/dashboard`, `/lessons`, `/flashcards`, `/ai-helper`, `/vibe-check`, `/signup`, `/login`, `/grammar-fixer`, `/story-generator`)
 - `api/` — API routes (serverless functions, e.g., `/api/ai-helper/route.ts`)
@@ -145,15 +157,15 @@ dasVerb/
 ### `/styles/`
 - Tailwind config and global CSS.
 
-### `/pages/docs/`
-- All official documentation, blog, and dev notes (Nextra-powered).
+### `/app/docs/(docs)/`
+- All official documentation, blog, and dev notes (MDX-based).
 
 ---
 
 ## 🗒️ Dev Notes
 
 - Use the docs for onboarding, logic explanations, and best practices
-- All new features should be documented in `/pages/docs/`
+- All new features should be documented in `/app/docs/(docs)/`
 - See the dev notes and blog for gotchas, tips, and recent changes
 
 ---
@@ -188,13 +200,13 @@ To get a local copy up and running, follow these steps.
 
 This project uses Genkit for its AI features, which connects to Google's Gemini models. You'll need an API key from Google AI Studio.
 
-1.  **Create a `.env` file** in the root of your project:
+1.  **Create a `.env.local` file** in the root of your project:
     ```bash
-    touch .env
+    touch .env.local
     ```
-2.  **Add your Google AI Studio API key** to the `.env` file:
+2.  **Add your Google AI Studio API key** to the `.env.local` file:
     ```env
-    GOOGLE_API_KEY=YOUR_GOOGLE_GEMINI_API_KEY
+    GOOGLE_AI_API_KEY=YOUR_GOOGLE_GEMINI_API_KEY
     ```
     Replace `YOUR_GOOGLE_GEMINI_API_KEY` with your actual key. You can obtain one from [Google AI Studio](https://aistudio.google.com/app/apikey).
 

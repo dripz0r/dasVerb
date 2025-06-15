@@ -38,24 +38,37 @@ Before you begin, make sure you have:
 
 ## Project Structure
 
-The project follows a modern Next.js 14 structure:
+The project follows a modern, clean Next.js 14 structure. All duplicate folders and files have been removed for clarity and maintainability:
 
 ```
 dasVerb/
-├── src/
-│   ├── app/           # Main Next.js App Router (routes, pages, layouts, API)
-│   ├── components/    # All React components (UI, features, layout, shared)
-│   ├── ai/            # AI logic, Genkit flows, and integration with Gemini
-│   ├── lib/           # Shared utilities and helper functions
-│   ├── hooks/         # Custom React hooks
-│   └── types/         # TypeScript type definitions (if present)
-├── public/            # Static assets (images, icons, etc.)
-├── styles/            # Global styles (Tailwind, custom CSS)
-├── pages/docs/        # Official documentation (Nextra)
-├── ...                # Config files, scripts, etc.
+├── app/                # Main Next.js App Router (routes, pages, layouts, API)
+│   ├── dashboard/      # Dashboard page and widgets
+│   ├── lessons/        # Lessons library and progress
+│   ├── flashcards/     # Flashcard decks
+│   ├── ai-helper/      # General AI helper tool
+│   ├── grammar-fixer/  # AI grammar correction tool
+│   ├── story-generator/# AI story generator tool
+│   ├── docs/           # Documentation (MDX-based)
+│   ├── ...             # Other feature folders (login, signup, vibe-check, etc.)
+│   ├── api/            # API routes (serverless functions)
+│   ├── layout.tsx      # Global layout (header, footer, container)
+│   ├── globals.css     # Main CSS import for Tailwind
+│   └── page.tsx        # Main landing page
+├── src/                # Source code (components, ai, hooks, lib)
+│   ├── components/     # All React components (UI, features, layout, shared)
+│   ├── ai/             # AI logic, Genkit flows, and Gemini integration
+│   ├── lib/            # Shared utilities and helper functions
+│   ├── hooks/          # Custom React hooks
+│   └── types/          # TypeScript type definitions (if present)
+├── public/             # Static assets (images, icons, etc.)
+├── styles/             # Global styles (Tailwind, custom CSS)
+├── ...                 # Config files, scripts, etc.
 ```
 
 For more details, see our [Project Structure](/docs/project-structure) guide.
+
+**See the [Resources](/docs/resources) page for all key tools, libraries, and future plans.**
 
 ## Development Workflow
 
@@ -124,7 +137,6 @@ See our [Dev Notes](/docs/dev-notes) for more details.
 - [ShadCN UI Documentation](https://ui.shadcn.com)
 - [Genkit by Firebase](https://firebase.google.com/docs/genkit)
 - [Google Gemini](https://ai.google.dev/)
-- [Nextra Documentation](https://nextra.site)
 
 ## Next Steps
 

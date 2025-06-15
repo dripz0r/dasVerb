@@ -1,5 +1,7 @@
 # Developer Notes & Gotchas
 
+> **Note:** The project is now fully cleaned up—no duplicate folders or files remain. The structure is organized and up to date for all contributors.
+
 Welcome to the DasVerb dev notes! This page is for contributors and maintainers. Here you'll find:
 - Tips for working in the codebase
 - Common gotchas
@@ -9,7 +11,7 @@ Welcome to the DasVerb dev notes! This page is for contributors and maintainers.
 ---
 
 ## General Tips
-- **Use the Docs:** Always check `/pages/docs/` for up-to-date structure and logic.
+- **Use the Docs:** Always check `/app/docs/(docs)/` for up-to-date structure and logic.
 - **Keep Components Small:** Break up big components into smaller, focused ones.
 - **Type Everything:** Use TypeScript for all new code and keep types in `/types/`.
 - **Test Locally:** Run `npm run dev` and check all major pages before pushing.
@@ -33,14 +35,14 @@ Welcome to the DasVerb dev notes! This page is for contributors and maintainers.
 1. Add UI in `/components/features/` and `/app/`.
 2. Add backend logic in `/app/api/` and `/src/ai/flows/`.
 3. Update types in `/types/`.
-4. Add docs in `/pages/docs/`.
+4. Add docs in `/app/docs/(docs)/`.
 5. Log changes in the dev blog or changelog.
 
 ## Common Gotchas
 - **Hydration Errors:** Make sure to use `'use client'` in interactive components.
 - **API Key Leaks:** Never expose secrets to the client. Use API routes for all secret logic.
 - **Turbopack Issues:** Use Webpack for dev (`npm run dev` with no `--turbopack`).
-- **MDX Docs:** All docs/blogs must be in `/pages/docs/` for Nextra v2.
+- **MDX Docs:** All docs/blogs must be in `/app/docs/(docs)/` for the new MDX system.
 
 ## Debugging
 - Use browser dev tools and console logs.

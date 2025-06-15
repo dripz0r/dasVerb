@@ -18,6 +18,7 @@ const docsNav = [
   { label: "Changelog", href: "/docs/changelog" },
   { label: "Dev Notes", href: "/docs/dev-notes" },
   { label: "Using Docs", href: "/docs/using-docs" },
+  { label: "Resources", href: "/docs/resources" },
   { label: "Blog", href: "/docs/blog" },
 ];
 

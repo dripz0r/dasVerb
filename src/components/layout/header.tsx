@@ -29,6 +29,7 @@ const docsNav = [
   { label: "Changelog", href: "/docs/changelog" },
   { label: "Dev Notes", href: "/docs/dev-notes" },
   { label: "Using Docs", href: "/docs/using-docs" },
+  { label: "Resources", href: "/docs/resources" },
   { label: "Blog", href: "/docs/blog" },
 ];
 
@@ -58,7 +59,6 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Logo />
-        
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           {navItems.map((item) =>
@@ -76,17 +76,16 @@ export function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              {item.label}
-            </Link>
+              <Link
+                key={item.label}
+                href={item.href}
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+              >
+                {item.label}
+              </Link>
             )
           )}
         </nav>
-
         <div className="hidden md:flex items-center space-x-4">
           <DarkModeToggle />
           {/* Level Up Token */}
@@ -106,7 +105,6 @@ export function Header() {
             <Link href="/signup">Sign Up</Link>
           </Button>
         </div>
-
         {/* Mobile navigation (hamburger menu) */}
         <div className="md:hidden">
           <Sheet>
