@@ -10,7 +10,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         <span className="text-xs text-purple-500 font-semibold tracking-widest uppercase">Learn. Build. Share.</span>
       </header>
       <main className="flex-1 p-8 max-w-3xl mx-auto w-full">
-        {children}
+        <div className="prose prose-lg prose-purple max-w-none">{children}</div>
       </main>
     </div>
   );
